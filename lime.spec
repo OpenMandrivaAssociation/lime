@@ -4,7 +4,7 @@
 
 Summary:	An encryption library for one-to-one and group instant messaging
 Name:		lime
-Version:	4.4.9
+Version:	4.4.34
 Release:	1
 License:	GPLv3
 Group:		System/Libraries
