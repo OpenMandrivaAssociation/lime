@@ -17,6 +17,7 @@ BuildRequires:	cmake
 BuildRequires:	doxygen
 BuildRequires:	ninja
 BuildRequires:	soci-devel
+BuildRequires:	pkgconfig(bctoolbox)
 
 %description
 LIME is an encryption library for one-to-one and group instant messaging,
