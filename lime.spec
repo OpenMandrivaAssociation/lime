@@ -16,6 +16,7 @@ Source0:	https://gitlab.linphone.org/BC/public/%{name}/-/archive/%{version}/%{na
 BuildRequires:	cmake
 BuildRequires:	doxygen
 BuildRequires:	ninja
+BuildRequires:	boost-devel
 BuildRequires:	soci-devel
 BuildRequires:	pkgconfig(bctoolbox)
 
