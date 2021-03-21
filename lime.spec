@@ -74,8 +74,8 @@ This package contains development files for %{name}
 %doc README.md
 %{_includedir}/%{name}/
 %{_libdir}/lib%{name}.so
-%{_libdir}/pkgconfig/%{name}.pc
-%{_datadir}/cmake/%{name}/
+#{_libdir}/pkgconfig/%{name}.pc
+#{_datadir}/cmake/%{name}/
 
 #---------------------------------------------------------------------------
 
