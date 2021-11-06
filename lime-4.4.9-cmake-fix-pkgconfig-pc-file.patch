@@ -1,0 +1,13 @@
+--- a/CMakeLists.txt
++++ b/CMakeLists.txt
+@@ -82,6 +82,9 @@
+ endif()
+ add_definitions("-DLIME_EXPORTS")
+ 
++configure_file(${CMAKE_CURRENT_SOURCE_DIR}/lime.pc.in ${CMAKE_CURRENT_BINARY_DIR}/lime.pc)
++install(FILES ${CMAKE_CURRENT_BINARY_DIR}/lime.pc DESTINATION "${CMAKE_INSTALL_LIBDIR}/pkgconfig")
++
+ set(STRICT_OPTIONS_C)
+ set(STRICT_OPTIONS_CPP )
+ set(STRICT_OPTIONS_CXX )
+
