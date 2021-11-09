@@ -5,7 +5,7 @@
 Summary:	An encryption library for one-to-one and group instant messaging
 Name:		lime
 Version:	5.0.44
-Release:	1
+Release:	2
 License:	GPLv3
 Group:		System/Libraries
 URL:		https://linphone.org/
