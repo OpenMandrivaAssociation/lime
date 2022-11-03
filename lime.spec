@@ -1,10 +1,10 @@
 %define major 1
-%define libname %mklibname %{name} %{major}
-%define develname %mklibname %{name} -d
+%define libname %mklibname %{name}
+%define devname %mklibname %{name} -d
 
 Summary:	An encryption library for one-to-one and group instant messaging
 Name:		lime
-Version:	5.1.61
+Version:	5.1.67
 Release:	1
 License:	GPLv3
 Group:		System/Libraries
@@ -61,16 +61,16 @@ allowing users to exchange messages privately and asynchronously.
 
 #---------------------------------------------------------------------------
 
-%package -n %{develname}
+%package -n %{devname}
 Summary:	Development files for %{name}
 Group:		Development/C++
 Requires:	%{libname} = %{version}-%{release}
 Provides:	%{name}-devel = %{version}-%{release}
 
-%description -n %{develname}
+%description -n %{devname}
 This package contains development files for %{name}
 
-%files -n %{develname}
+%files -n %{devname}
 %doc README.md
 %{_includedir}/%{name}/
 %{_libdir}/lib%{name}.so
@@ -85,7 +85,7 @@ This package contains development files for %{name}
 %build
 %cmake \
 	-DENABLE_STATIC:BOOL=NO \
-	-DENABLE_STRICT:BOOL=NO \
+	-DENABLE_STRICT:BOOL=YES \
 	-DENABLE_UNIT_TESTS=NO \
 	-DENABLE_C_INTERFACE:BOOL=NO \
 	-DENABLE_JNI:BOOL=NO \
