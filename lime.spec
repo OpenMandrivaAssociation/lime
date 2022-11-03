@@ -2,6 +2,11 @@
 %define libname %mklibname %{name}
 %define devname %mklibname %{name} -d
 
+%bcond_with	jni
+%bcond_with	static
+%bcond_without	strict
+%bcond_with	tests
+
 Summary:	An encryption library for one-to-one and group instant messaging
 Name:		lime
 Version:	5.1.67
@@ -84,11 +89,11 @@ This package contains development files for %{name}
 
 %build
 %cmake \
-	-DENABLE_STATIC:BOOL=NO \
-	-DENABLE_STRICT:BOOL=YES \
-	-DENABLE_UNIT_TESTS=NO \
+	-DENABLE_STRICT:BOOL=%{?with_static:ON}%{?!with_static:OFF} \
+	-DENABLE_STATIC:BOOL=%{?with_static:ON}%{?!with_static:OFF} \
+	-DENABLE_UNIT_TESTS:BOOL=%{?with_tests:ON}%{?!with_tests:OFF} \
+	-DENABLE_JNI:BOOL=%{?with_jni:ON}%{?!with_jni:OFF} \
 	-DENABLE_C_INTERFACE:BOOL=NO \
-	-DENABLE_JNI:BOOL=NO \
 	-G Ninja
 
 %ninja_build
