@@ -9,13 +9,13 @@
 
 Summary:	An encryption library for one-to-one and group instant messaging
 Name:		lime
-Version:	5.1.72
+Version:	5.2.0
 Release:	1
 License:	GPLv3
 Group:		System/Libraries
 URL:		https://linphone.org/
 Source0:	https://gitlab.linphone.org/BC/public/%{name}/-/archive/%{version}/%{name}-%{version}.tar.bz2
-Patch0:		lime-5.0.18-cmake-fix-cmake-path.patch
+Patch0:		lime-5.2.0-cmake-fix-cmake-path.patch
 Patch1:		lime-4.4.9-cmake-fix-pkgconfig-pc-file.patch
 
 BuildRequires:	cmake
