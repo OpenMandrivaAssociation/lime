@@ -1,0 +1,22 @@
+--- a/src/lime_double_ratchet.cpp
++++ b/src/lime_double_ratchet.cpp
+@@ -25,6 +25,7 @@
+ #include "bctoolbox/exception.hh"
+ 
+ #include <algorithm> //copy_n
++#include <cstdint>
+ 
+ 
+ using namespace::std;
+--- a/src/lime_settings.hpp
++++ b/src/lime_settings.hpp
+@@ -20,6 +20,8 @@
+ #ifndef lime_settings_hpp
+ #define lime_settings_hpp
+ 
++#include <cstdint>
++
+ namespace lime {
+ /** @brief Hold constants definition used as settings in all components of the lime library
+  *
+

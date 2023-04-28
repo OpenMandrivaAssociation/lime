@@ -17,6 +17,7 @@ URL:		https://linphone.org/
 Source0:	https://gitlab.linphone.org/BC/public/%{name}/-/archive/%{version}/%{name}-%{version}.tar.bz2
 Patch0:		lime-5.2.0-cmake-fix-cmake-path.patch
 Patch1:		lime-4.4.9-cmake-fix-pkgconfig-pc-file.patch
+Patch2:		lime-5.2.53-add_missing_headers.patch
 
 BuildRequires:	cmake
 BuildRequires:	doxygen
