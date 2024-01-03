@@ -13,9 +13,9 @@ Version:	5.3.6
 Release:	1
 License:	GPLv3
 Group:		System/Libraries
-URL:		https://linphone.org/
+URL:		https://linphone.org/build.log
 Source0:	https://gitlab.linphone.org/BC/public/%{name}/-/archive/%{version}/%{name}-%{version}.tar.bz2
-Patch0:		lime-5.2.0-cmake-fix-cmake-path.patch
+Patch0:		lime-5.3.6-cmake-fix-cmake-path.patch
 Patch1:		lime-4.4.9-cmake-fix-pkgconfig-pc-file.patch
 Patch2:		lime-5.2.64-add_missing_headers.patch
 
@@ -81,7 +81,7 @@ This package contains development files for %{name}
 %{_includedir}/%{name}/
 %{_libdir}/lib%{name}.so
 %{_libdir}/pkgconfig/%{name}.pc
-%{_datadir}/cmake/%{name}/
+%{_datadir}/cmake/Lime
 
 #---------------------------------------------------------------------------
 
