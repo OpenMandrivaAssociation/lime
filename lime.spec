@@ -2,6 +2,9 @@
 %define libname %mklibname %{name}
 %define devname %mklibname %{name} -d
 
+# exclude unwanted cmake requires
+%global __provides_exclude_from ^%{_datadir}/cmake/.*/Find.*cmake$
+
 %bcond_with	jni
 %bcond_with	static
 %bcond_without	strict
@@ -10,7 +13,7 @@
 Summary:	An encryption library for one-to-one and group instant messaging
 Name:		lime
 Version:	5.3.15
-Release:	1
+Release:	2
 License:	GPLv3
 Group:		System/Libraries
 URL:		https://linphone.org
@@ -23,8 +26,8 @@ BuildRequires:	cmake
 BuildRequires:	doxygen
 BuildRequires:	ninja
 BuildRequires:	boost-devel
+BuildRequires:	cmake(bctoolbox)
 BuildRequires:	soci-devel
-BuildRequires:	pkgconfig(bctoolbox)
 
 %description
 LIME is an encryption library for one-to-one and group instant messaging,
@@ -102,5 +105,5 @@ This package contains development files for %{name}
 %install
 %ninja_install -C build
 
-find %{buildroot} -name "*.la" -delete
+#find %{buildroot} -name "*.la" -delete
 
