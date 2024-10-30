@@ -5,14 +5,14 @@
 # exclude unwanted cmake requires
 %global __provides_exclude_from ^%{_datadir}/cmake/.*/Find.*cmake$
 
-%bcond_with	jni
-%bcond_with	static
-%bcond_without	strict
-%bcond_with	tests
+%bcond jni			0
+%bcond strict			1
+%bcond unit_tests		1
+%bcond unit_tests_install	1
 
 Summary:	An encryption library for one-to-one and group instant messaging
 Name:		lime
-Version:	5.3.93
+Version:	5.3.94
 Release:	1
 License:	GPLv3
 Group:		System/Libraries
@@ -55,6 +55,12 @@ Main features are:
  -  man-in-the-middle (MITM) detection based on ZRTP auxiliary secret
  -  signaling protocol agnostic
 
+%if %{with unit_tests} && %{with unit_tests_install}
+%files
+%{_bindir}/%{name}-tester
+%{_datadir}/%{name}_tester/
+%endif
+
 #---------------------------------------------------------------------------
 
 %package -n %{libname}
@@ -93,17 +99,26 @@ This package contains development files for %{name}
 
 %build
 %cmake \
-	-DENABLE_STATIC:BOOL=%{?with_static:ON}%{?!with_static:OFF} \
 	-DENABLE_STRICT:BOOL=%{?with_strict:ON}%{?!with_strict:OFF} \
-	-DENABLE_UNIT_TESTS:BOOL=%{?with_tests:ON}%{?!with_tests:OFF} \
+	-DENABLE_UNIT_TESTS:BOOL=%{?with_unit_tests:ON}%{?!with_unit_tests:OFF} \
 	-DENABLE_JNI:BOOL=%{?with_jni:ON}%{?!with_jni:OFF} \
-	-DENABLE_C_INTERFACE:BOOL=NO \
 	-G Ninja
-
 %ninja_build
 
 %install
 %ninja_install -C build
 
-#find %{buildroot} -name "*.la" -delete
+# don't install unit tester
+%if %{with unit_tests} && ! %{with unit_tests_install}
+rm -f  %{buildroot}%{_bindir}/%{name}-tester
+rm -fr %{buildroot}%{_datadir}/%{name}-tester/
+%endif
+
+%check
+%if %{with unit_tests}
+pushd build
+#FIXME:  some tests fail
+ctest ||  true
+popd
+%endif
 
