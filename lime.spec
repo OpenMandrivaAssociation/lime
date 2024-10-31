@@ -17,7 +17,7 @@ Release:	1
 License:	GPLv3
 Group:		System/Libraries
 URL:		https://linphone.org
-Source0:       https://gitlab.linphone.org/BC/public/%{name}/-/archive/%{version}/%{name}-%{version}.tar.bz2
+Source0:	https://gitlab.linphone.org/BC/public/%{name}/-/archive/%{version}/%{name}-%{version}.tar.bz2
 Patch0:		lime-5.3.6-cmake-fix-cmake-path.patch
 Patch1:		lime-4.4.9-cmake-fix-pkgconfig-pc-file.patch
 Patch2:		lime-5.2.64-add_missing_headers.patch
@@ -118,8 +118,8 @@ rm -fr %{buildroot}%{_datadir}/%{name}-tester/
 %check
 %if %{with unit_tests}
 pushd build
-#FIXME:  some tests fail
-ctest ||  true
+#FIXME: some tests fail
+ctest || true
 popd
 %endif
 
