@@ -27,6 +27,7 @@ BuildRequires:	doxygen
 BuildRequires:	ninja
 BuildRequires:	boost-devel
 BuildRequires:	cmake(bctoolbox)
+BuildRequires:	cmake(bellesip)
 BuildRequires:	soci-devel
 
 %description
